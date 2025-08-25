@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxart1y6obfpl"]
+
+[ext_resource type="Script" uid="uid://dsy3v00n53n2n" path="res://Atividade_17/atividade_17.gd" id="1_6hevt"]
+
+[node name="Atividade17" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6hevt")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044
+anchor_top = 0.082
+anchor_right = 0.044
+anchor_bottom = 0.082
+offset_left = 326.312
+offset_top = 33.864
+offset_right = 529.312
+offset_bottom = 71.864
+placeholder_text = "Digite um número aqui"
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044
+anchor_top = 0.082
+anchor_right = 0.044
+anchor_bottom = 0.082
+offset_left = 327.312
+offset_top = 88.864
+offset_right = 530.312
+offset_bottom = 126.864
+placeholder_text = "Digite um número aqui"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 40.0
+offset_right = 576.0
+offset_bottom = 72.0
+horizontal_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 106.0
+offset_right = 741.0
+offset_bottom = 162.0
+selected = 0
+item_count = 4
+popup/item_0/text = "Somar"
+popup/item_0/id = 0
+popup/item_1/text = "Subtrair"
+popup/item_1/id = 1
+popup/item_2/text = "Multiplicar"
+popup/item_2/id = 2
+popup/item_3/text = "Dividir"
+popup/item_3/id = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 206.0
+offset_right = 523.0
+offset_bottom = 246.0
+text = "Calcular"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
