@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://be0hj4b5oomy6"]
+
+[ext_resource type="Script" uid="uid://db55gn2c1qm37" path="res://Atividade_18/progress_bar.gd" id="1_sbin0"]
+[ext_resource type="Texture2D" uid="uid://cb7pdyvlypat0" path="res://Atividade_18/Círculo Preto.svg" id="2_taynv"]
+[ext_resource type="Texture2D" uid="uid://n65dg23sqmye" path="res://Atividade_18/Círculo Amarelo.svg" id="3_taynv"]
+
+[node name="ProgressBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sbin0")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.423
+anchor_top = 0.444
+anchor_right = 0.423
+anchor_bottom = 0.444
+offset_left = -181.296
+offset_top = -203.712
+offset_right = 458.704
+offset_bottom = 436.288
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+fill_mode = 5
+texture_under = ExtResource("2_taynv")
+texture_progress = ExtResource("3_taynv")
+
+[node name="Label" type="Label" parent="TextureProgressBar"]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 210.0
+offset_right = 445.0
+offset_bottom = 619.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 300
+text = "1"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 176.0
+offset_top = 237.0
+offset_right = 318.0
+offset_bottom = 345.0
+text = "+50"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="value_changed" from="TextureProgressBar" to="." method="_on_texture_progress_bar_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
