@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhycrkrxc1mrp"]
+
+[ext_resource type="Script" uid="uid://db55gn2c1qm37" path="res://Atividade_18/progress_bar.gd" id="1_1p5qj"]
+[ext_resource type="Texture2D" uid="uid://cb7pdyvlypat0" path="res://Atividade_18/Círculo Preto.svg" id="2_atnhm"]
+[ext_resource type="Texture2D" uid="uid://n65dg23sqmye" path="res://Atividade_18/Círculo Amarelo.svg" id="3_wu4rw"]
+
+[sub_resource type="Gradient" id="Gradient_1p5qj"]
+offsets = PackedFloat32Array(0, 0.893333, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.990475, 0.547493, 0.16592, 1, 1, 1, 1, 1)
+
+[node name="ProgressBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_right = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1p5qj")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.423
+anchor_top = 0.444
+anchor_right = 0.423
+anchor_bottom = 0.444
+offset_left = -169.296
+offset_top = -201.712
+offset_right = 470.704
+offset_bottom = 438.288
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+fill_mode = 5
+texture_under = ExtResource("2_atnhm")
+texture_progress = ExtResource("3_wu4rw")
+
+[node name="Label" type="Label" parent="TextureProgressBar"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 208.0
+offset_right = 443.0
+offset_bottom = 617.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 300
+text = "1"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 237.0
+offset_right = 318.0
+offset_bottom = 345.0
+text = "+50"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(480, 234)
+scale = Vector2(2, 2)
+emitting = false
+amount = 100
+lifetime = 2.0
+one_shot = true
+emission_shape = 2
+emission_sphere_radius = 100.0
+particle_flag_align_y = true
+orbit_velocity_min = 1.0
+orbit_velocity_max = 20.0
+scale_amount_min = 8.0
+scale_amount_max = 8.0
+color = Color(1, 1, 0.0509804, 1)
+color_initial_ramp = SubResource("Gradient_1p5qj")
+
+[connection signal="value_changed" from="TextureProgressBar" to="." method="_on_texture_progress_bar_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
