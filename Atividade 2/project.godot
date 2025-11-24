@@ -14,3 +14,7 @@ config/name="Atividade 2 - 180825"
 run/main_scene="res://Atividade2.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

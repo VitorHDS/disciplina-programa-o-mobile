@@ -49,7 +49,7 @@ script = ExtResource("1_7x6dn")
 position = Vector2(318.125, 107.625)
 scale = Vector2(3.03873, 3.17537)
 sprite_frames = SubResource("SpriteFrames_lrjhh")
-frame_progress = 0.640121
+frame_progress = 0.194643
 
 [node name="Button" type="Button" parent="."]
 offset_left = 223.0
